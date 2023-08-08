@@ -123,6 +123,11 @@ public class UICliente extends javax.swing.JFrame {
 
         jTextField6.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
         jTextField6.setText("Nombre Cliente");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
 
@@ -159,6 +164,11 @@ public class UICliente extends javax.swing.JFrame {
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("lugar ");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
@@ -238,7 +248,7 @@ public class UICliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nombreCliente = jTextField1.getText();
+        String nombreCliente = jTextField6.getText();
         String telefonoCliente = jTextField2.getText();
         String correoCliente = jTextField3.getText();
         String codigoCliente = jTextField4.getText();
@@ -246,7 +256,7 @@ public class UICliente extends javax.swing.JFrame {
 
         Cliente objCliente = new Cliente(codigoCliente, edadCliente, nombreCliente, telefonoCliente, correoCliente);
         listaClientes.add(objCliente);
-         JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");   
+        JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -280,7 +290,7 @@ public class UICliente extends javax.swing.JFrame {
                 linea = objE.toString();
                 salida.println(linea);
             }
-            JOptionPane.showMessageDialog(null,"el archivo se ha creado");
+            JOptionPane.showMessageDialog(null, "el archivo se ha creado");
             salida.close();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error almacenando los datos en archivo texto "
@@ -290,7 +300,7 @@ public class UICliente extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-                String nombreCliente = jTextField1.getText();
+        String nombreCliente = jTextField6.getText();
         String telefonoCliente = jTextField2.getText();
         String correoCliente = jTextField3.getText();
         String codigoCliente = jTextField4.getText();
@@ -298,28 +308,28 @@ public class UICliente extends javax.swing.JFrame {
 
         Cliente objCliente = new Cliente(codigoCliente, edadCliente, nombreCliente, telefonoCliente, correoCliente);
         listaClientes.addLast(objCliente);
-         JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");   
+        JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        
+
         listaClientes.clear();
-        JOptionPane.showMessageDialog(null,"se a limpiado la lista.");
-        
-        
+        JOptionPane.showMessageDialog(null, "se a limpiado la lista.");
+
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        
+
         listaClientes.removeFirst();
-        JOptionPane.showMessageDialog(null,"se a eliminado el primer cliente.");
+        JOptionPane.showMessageDialog(null, "se a eliminado el primer cliente.");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-                        String nombreCliente = jTextField1.getText();
+        String nombreCliente = jTextField6.getText();
         String telefonoCliente = jTextField2.getText();
         String correoCliente = jTextField3.getText();
         String codigoCliente = jTextField4.getText();
@@ -327,13 +337,33 @@ public class UICliente extends javax.swing.JFrame {
 
         Cliente objCliente = new Cliente(codigoCliente, edadCliente, nombreCliente, telefonoCliente, correoCliente);
         listaClientes.addFirst(objCliente);
-         JOptionPane.showMessageDialog(null, "Se ha agregado un cliente."); 
+        JOptionPane.showMessageDialog(null, "Se ha agregado un cliente.");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // index of
+        try {
+            int indexBusqueda = Integer.parseInt(jTextField1.getText()); // Obtener el número de índice
+
+            if (indexBusqueda >= 0 && indexBusqueda < listaClientes.size()) {
+                Cliente clienteEncontrado = listaClientes.get(indexBusqueda);
+                JOptionPane.showMessageDialog(null, "El cliente en el índice " + indexBusqueda + " es:\n" + clienteEncontrado);
+            } else {
+                JOptionPane.showMessageDialog(null, "Índice fuera de rango.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un número válido.");
+        }
+
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
