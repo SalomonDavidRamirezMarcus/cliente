@@ -351,13 +351,20 @@ public class UICliente extends javax.swing.JFrame {
 
             if (indexBusqueda >= 0 && indexBusqueda < listaClientes.size()) {
                 Cliente clienteEncontrado = listaClientes.get(indexBusqueda);
-                JOptionPane.showMessageDialog(null, "El cliente en el índice " + indexBusqueda + " es:\n" + clienteEncontrado);
+                int indexOfCliente = listaClientes.indexOf(clienteEncontrado);
+
+                if (indexOfCliente >= 0) {
+                    JOptionPane.showMessageDialog(null, "El cliente " + clienteEncontrado + " está en el índice " + indexOfCliente);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Cliente no encontrado en la lista.");
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Índice fuera de rango.");
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un número válido.");
         }
+    
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -377,23 +384,35 @@ public class UICliente extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(UICliente.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UICliente.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UICliente.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
 
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+} catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(UICliente.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UICliente.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UICliente.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
